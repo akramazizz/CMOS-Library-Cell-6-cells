@@ -1,0 +1,29 @@
+*** SPICE deck for cell inverter_size4_sim{sch} from library dasdasdasdasd-
+*** Created on Sun May 16, 2021 17:35:34
+*** Last revised on Sun May 16, 2021 18:12:31
+*** Written on Mon May 17, 2021 00:55:33 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT dasdasdasdasd-__inverter_size4 FROM CELL dasdasdasdasd-:inverter_size4{sch}
+.SUBCKT dasdasdasdasd-__inverter_size4 x Y
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 Y x gnd gnd N L=0.2U W=1.6U
+Mpmos@0 vdd x Y vdd P L=0.2U W=3.904U
+.ENDS dasdasdasdasd-__inverter_size4
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: dasdasdasdasd-:inverter_size4_sim{sch}
+Xinverter@0 in y dasdasdasdasd-__inverter_size4
+
+* Spice Code nodes in cell cell 'dasdasdasdasd-:inverter_size4_sim{sch}'
+vdd vdd 0 dc 1.8
+vin in 0 DC pulse 0 1.8 0.1n 0p 0p 5n 10n
+.tran 0 200n
+cload y 0 100fF
+.measure tpdr_0_cinv v(in) val=0.9 fall=1 TARG v(y) val=0.9 rise=1
+.measure tpdf_0_cinv v(in) val=0.9 rise=1 TARG v(y) val=0.9 fall=1
+.include c:\electric\scmos.txt
+.END

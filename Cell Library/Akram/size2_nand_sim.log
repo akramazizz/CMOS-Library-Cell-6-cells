@@ -1,0 +1,40 @@
+Circuit: *** SPICE deck for cell size2_nand_sim{sch} from library Number2
+
+Ignoring BSIM parameter HDIF
+Ignoring BSIM parameter ACM
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter HDIF
+Ignoring BSIM parameter ACM
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Limiting rise time of source vin to 5e-010
+Limiting fall time of source vin to 5e-010
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Direct Newton iteration for .op point succeeded.
+
+tpdr_0_cinv=6.24707e-009 FROM 0 TO 6.24707e-009
+tpdf_0_cinv=5.96412e-010 FROM 0 TO 5.96412e-010
+
+
+Date: Mon May 17 15:05:31 2021
+Total elapsed time: 0.114 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 6775
+traniter = 6770
+tranpoints = 2394
+accept = 1978
+rejected = 416
+matrix size = 7
+fillins = 0
+solver = Normal
+Matrix Compiler1: 322 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler2: off  [0.1]/0.2/0.2
+
+

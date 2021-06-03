@@ -1,0 +1,33 @@
+*** SPICE deck for cell Nor_4_sim{sch} from library projectdd2
+*** Created on Sun May 02, 2021 16:25:18
+*** Last revised on Mon May 17, 2021 00:58:41
+*** Written on Mon May 17, 2021 00:59:42 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT projectdd2__Nor_4 FROM CELL Nor_4{sch}
+.SUBCKT projectdd2__Nor_4 a b c out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out c gnd gnd N L=0.2U W=1.6U
+Mnmos@1 out b gnd gnd N L=0.2U W=1.6U
+Mnmos@2 out a gnd gnd N L=0.2U W=1.6U
+Mpmos@0 vdd a net@0 vdd P L=0.2U W=11.6U
+Mpmos@1 net@0 b net@49 vdd P L=0.2U W=11.6U
+Mpmos@2 net@49 c out vdd P L=0.2U W=11.6U
+.ENDS projectdd2__Nor_4
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: Nor_4_sim{sch}
+XNor_4@0 gnd gnd in y projectdd2__Nor_4
+
+* Spice Code nodes in cell cell 'Nor_4_sim{sch}'
+vdd vdd 0 dc 1.8
+vin in 0 DC pulse 0 1.8 0.1n 0p 0p 5n 10n
+.tran 0 200n
+cload y 0 100fF
+.measure tpdr_0_cinv v(in) val=0.9 fall=1 TARG v(y) val=0.9 rise=1
+.measure tpdf_0_cinv v(in) val=0.9 rise=1 TARG v(y) val=0.9 fall=1
+.include c:\electric\scmos.txt
+.END

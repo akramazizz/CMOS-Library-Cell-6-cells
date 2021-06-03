@@ -1,0 +1,64 @@
+
+Values for capacitance: 100fF, time: 0ps.
+tpdr_0_cinv=6.08302e-009
+tpdf_0_cinv=6.01121e-010
+
+Values for capacitance: 200fF, time: 0ps.
+tpdr_0_cinv=6.20203e-009
+tpdf_0_cinv=7.19393e-010
+
+Values for capacitance: 400fF, time: 0ps.
+tpdr_0_cinv=6.436e-009
+tpdf_0_cinv=9.52791e-010
+
+Values for capacitance: 800fF, time: 0ps.
+tpdr_0_cinv=6.89419e-009
+tpdf_0_cinv=1.41084e-009
+
+Values for capacitance: 100fF, time: 125ps.
+tpdr_0_cinv=5.4604e-009
+tpdf_0_cinv=3.4822e-010
+
+Values for capacitance: 200fF, time: 125ps.
+tpdr_0_cinv=5.5793e-009
+tpdf_0_cinv=4.68297e-010
+
+Values for capacitance: 400fF, time: 125ps.
+tpdr_0_cinv=5.8159e-009
+tpdf_0_cinv=7.01179e-010
+
+Values for capacitance: 800fF, time: 125ps.
+tpdr_0_cinv=6.27019e-009
+tpdf_0_cinv=1.15593e-009
+
+Values for capacitance: 100fF, time: 500ps.
+tpdr_0_cinv=6.08302e-009
+tpdf_0_cinv=6.01121e-010
+
+Values for capacitance: 200fF, time: 500ps.
+tpdr_0_cinv=6.20203e-009
+tpdf_0_cinv=7.19393e-010
+
+Values for capacitance: 400fF, time: 500ps.
+tpdr_0_cinv=6.436e-009
+tpdf_0_cinv=9.52791e-010
+
+Values for capacitance: 800fF, time: 500ps.
+tpdr_0_cinv=6.89419e-009
+tpdf_0_cinv=1.41084e-009
+
+Values for capacitance: 100fF, time: 1000ps.
+tpdr_0_cinv=6.88933e-009
+tpdf_0_cinv=9.16592e-010
+
+Values for capacitance: 200fF, time: 1000ps.
+tpdr_0_cinv=7.03493e-009
+tpdf_0_cinv=1.06067e-009
+
+Values for capacitance: 400fF, time: 1000ps.
+tpdr_0_cinv=7.27141e-009
+tpdf_0_cinv=1.29415e-009
+
+Values for capacitance: 800fF, time: 1000ps.
+tpdr_0_cinv=7.72942e-009
+tpdf_0_cinv=1.7518e-009

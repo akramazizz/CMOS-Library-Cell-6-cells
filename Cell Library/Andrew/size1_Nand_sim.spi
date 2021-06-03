@@ -1,0 +1,33 @@
+*** SPICE deck for cell size1_Nand_sim{sch} from library Number2
+*** Created on Mon May 17, 2021 11:11:44
+*** Last revised on Mon May 17, 2021 14:53:14
+*** Written on Mon May 17, 2021 14:55:44 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Number2__size1_Nand FROM CELL Number2:size1_Nand{sch}
+.SUBCKT Number2__size1_Nand F x y z
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 F x net@11 gnd N L=0.2U W=1.2U
+Mnmos@1 net@11 y net@37 gnd N L=0.2U W=1.2U
+Mnmos@4 net@37 z gnd gnd N L=0.2U W=1.2U
+Mpmos@0 vdd y F vdd P L=0.2U W=1U
+Mpmos@1 vdd x F vdd P L=0.2U W=1U
+Mpmos@2 vdd z F vdd P L=0.2U W=1U
+.ENDS Number2__size1_Nand
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: Number2:size1_Nand_sim{sch}
+Xsize1_Na@0 y vdd vdd in Number2__size1_Nand
+
+* Spice Code nodes in cell cell 'Number2:size1_Nand_sim{sch}'
+vdd vdd 0 dc 1.8
+vin in 0 DC pulse 0 1.8 0.1n 0p 0p 5n 10n
+.tran 0 200n
+cload y 0 100fF
+.measure tpdr_0_cinv v(in) val=0.9 fall=1 TARG v(y) val=0.9 rise=1
+.measure tpdf_0_cinv v(in) val=0.9 rise=1 TARG v(y) val=0.9 fall=1
+.include c:\electric\scmos.txt
+.END

@@ -1,0 +1,41 @@
+*** SPICE deck for cell Complex_31updated_sim{sch} from library projectdd2
+*** Created on Sun May 02, 2021 23:28:12
+*** Last revised on Mon May 17, 2021 00:57:50
+*** Written on Mon May 17, 2021 00:58:54 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT projectdd2__Complex_31updated FROM CELL Complex_31updated{sch}
+.SUBCKT projectdd2__Complex_31updated out w x y z
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out x net@29 gnd N L=0.2U W=1.2U
+Mnmos@1 net@29 y net@30 gnd N L=0.2U W=1.2U
+Mnmos@2 net@30 z gnd gnd N L=0.2U W=1.2U
+Mnmos@3 out z net@31 gnd N L=0.2U W=0.8U
+Mnmos@4 out y net@31 gnd N L=0.2U W=0.8U
+Mnmos@5 out x net@31 gnd N L=0.2U W=0.8U
+Mnmos@6 net@31 w gnd gnd N L=0.2U W=0.8U
+Mpmos@5 vdd x net@5 vdd P L=0.2U W=3.9U
+Mpmos@6 vdd y net@5 vdd P L=0.2U W=3.9U
+Mpmos@7 vdd z net@5 vdd P L=0.2U W=3.9U
+Mpmos@8 net@5 x net@28 vdd P L=0.2U W=3.9U
+Mpmos@9 net@28 y net@15 vdd P L=0.2U W=3.9U
+Mpmos@10 net@15 z out vdd P L=0.2U W=3.9U
+Mpmos@11 net@5 w out vdd P L=0.2U W=1.3U
+.ENDS projectdd2__Complex_31updated
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: Complex_31updated_sim{sch}
+XComplex_@1 y vdd in gnd gnd projectdd2__Complex_31updated
+
+* Spice Code nodes in cell cell 'Complex_31updated_sim{sch}'
+vdd vdd 0 dc 1.8
+vin in 0 DC pulse 0 1.8 0.1n 0p 0p 5n 10n
+.tran 0 200n
+cload y 0 100fF
+.measure tpdr_0_cinv v(in) val=0.9 fall=1 TARG v(y) val=0.9 rise=1
+.measure tpdf_0_cinv v(in) val=0.9 rise=1 TARG v(y) val=0.9 fall=1
+.include c:\electric\scmos.txt
+.END

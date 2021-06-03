@@ -1,0 +1,39 @@
+*** SPICE deck for cell size1_#5_sim{sch} from library Number5org
+*** Created on Mon May 17, 2021 11:22:06
+*** Last revised on Mon May 17, 2021 14:59:06
+*** Written on Mon May 17, 2021 15:05:59 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Number5org__size1_#5 FROM CELL size1_#5{sch}
+.SUBCKT Number5org__size1_#5 g x y z
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 g x net@54 gnd N L=0.2U W=0.8U
+Mnmos@2 g z net@97 gnd N L=0.2U W=0.8U
+Mnmos@4 g z net@7 gnd N L=0.2U W=0.8U
+Mnmos@5 net@7 x gnd gnd N L=0.2U W=0.8U
+Mnmos@6 net@54 y gnd gnd N L=0.2U W=0.8U
+Mnmos@7 net@97 y gnd gnd N L=0.2U W=0.8U
+Mpmos@0 vdd x net@61 vdd P L=0.2U W=2.9U
+Mpmos@1 vdd z net@61 vdd P L=0.2U W=2.9U
+Mpmos@2 net@61 x net@67 vdd P L=0.2U W=2.9U
+Mpmos@4 net@67 z g vdd P L=0.2U W=2.9U
+Mpmos@6 net@67 y g vdd P L=0.2U W=2.9U
+Mpmos@7 net@61 y net@67 vdd P L=0.2U W=2.9U
+.ENDS Number5org__size1_#5
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: size1_#5_sim{sch}
+Xsize1_#5@0 y in vdd gnd Number5org__size1_#5
+
+* Spice Code nodes in cell cell 'size1_#5_sim{sch}'
+vdd vdd 0 dc 1.8
+vin in 0 DC pulse 0 1.8 0.1n 0p 0p 5n 10n
+.tran 0 200n
+cload y 0 100fF
+.measure tpdr_0_cinv v(in) val=0.9 fall=1 TARG v(y) val=0.9 rise=1
+.measure tpdf_0_cinv v(in) val=0.9 rise=1 TARG v(y) val=0.9 fall=1
+.include c:\electric\scmos.txt
+.END
